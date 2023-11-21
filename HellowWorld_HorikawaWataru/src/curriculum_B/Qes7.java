@@ -9,6 +9,7 @@ public class Qes7 {
 	 * [詳細] 科目は 英語、数学、理科、社会の４教科
 	 *        人数の入力、点数の入力、個人平均点、科目ごとの平均点の順番に出力
 	 */
+	@SuppressWarnings({ "deprecation", "unused", "resource" })
 	public static void main(String[] args) {
 		 // 人数入力用のスキャナー
 		System.out.print("生徒の人数を入力してください（2以上）: ");
@@ -18,11 +19,15 @@ public class Qes7 {
 		String subject[] = {"英語", "数学", "理科", "社会"}; // 科目を配列に入れる
 		int pointStr[][] = new int[text][4]; // 点数を入れるための多次元配列 [num人目] [0:英語 1:数学 2:理科 3:社会]
 		int subTotal[] = new int[text]; // 合計点を入れるための配列
+		double subAveTotal[] = new double[4];
 		BigDecimal ave; // 平均点の変数
 		BigDecimal a = new BigDecimal("4"); // 平均点を求める際に使う
 		BigDecimal n = BigDecimal.valueOf(text); // intからBigDecimalに変換
 		int subjectTotal = 0; // 各科目の合計点を入れるための変数
+		BigDecimal subjectAveTotal = new BigDecimal("0"); // 各科目の平均点を合計するための変数
 		BigDecimal subjectAve = BigDecimal.valueOf(subjectTotal).setScale(2, BigDecimal.ROUND_DOWN).divide(n);
+		BigDecimal aaa[] = new BigDecimal[4];
+		
 		
 		// 人数入力をしたら開始する処理 -- for文で入力された人数と同じ回数繰り返す
 		for(int num = 0; num < text; num++ ) {
@@ -80,8 +85,14 @@ public class Qes7 {
 				if(num == (text - 1)) {
 					subjectAve = BigDecimal.valueOf(subjectTotal).setScale(2, BigDecimal.ROUND_DOWN).divide(n);
 					System.out.println(subject[b] + "の平均点は" + subjectAve + "点です。");
+					subAveTotal[b] = subjectTotal;
+					aaa[b] = BigDecimal.valueOf(subAveTotal[b]).setScale(2, BigDecimal.ROUND_DOWN);
 					}
 				}
 			}
+		// 全体の平均点を計算する処理
+		System.out.println("全体の平均点は" + ((aaa[0].add(aaa[1]).add(aaa[2]).add(aaa[3])).divide(n)).divide(a) + "点です。");
 		}
 	}
+
+

@@ -16,6 +16,7 @@ public class Qes6 {
 	
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in); // 商品名を入力するスキャナー
 		String text = scanner.nextLine(); // 入力された商品名の取得
 		List<String> split = Arrays.asList(text.split("、")); // 入力された文字列を「 、 」で区切って配列 split に格納

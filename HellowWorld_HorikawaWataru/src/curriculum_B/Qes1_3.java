@@ -13,7 +13,8 @@ public class Qes1_3 {
 		 */
 		 
 		// 引数で標準入力System.inを指定する
-	    Scanner scanner = new Scanner(System.in);
+	    @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
 	    String text = scanner.nextLine(); // 入力された文字列
 	    boolean alphaNumcheck = !text.matches("^[0-9a-zA-Z]+$"); // 半角英数字判定
 	    /*
@@ -23,15 +24,16 @@ public class Qes1_3 {
 	     *  入力なし、nullで「名前を入力してください」
 	     *  正常な値であれば「ユーザー名「 " + text +  " 」を登録しました」
 	     */
-	    if(alphaNumcheck == true) {
+	    if(text.length() == 0 ||  text == null ) {
+	    	System.out.println("「名前を入力してください」");
+	    }
+	    else if(alphaNumcheck == true) {
 	    	System.out.println("「半角英数字のみで名前を入力してください」"); // 問２半角英数字のみ入力可能
 	    }
 	    else if(text.length() > 10) {
 	    	System.out.println("「名前を10文字以内で入力してください」");
 	    }
-	    else if(text.length() == 0 ||  text == null) {
-	    	System.out.println("「名前を入力してください」");
-	    }
+	    
 	    else {
 	    	System.out.println("「ユーザー名「 " + text +  " 」を登録しました」");
 	    	
@@ -45,7 +47,8 @@ public class Qes1_3 {
 	    	int jankenWin = 0; // じゃんけんの勝利用カウント変数
 	    	while(jankenWin < 1) {
 	    		jankenNum++;
-	    		Scanner jankenSca = new Scanner(System.in);
+	    		@SuppressWarnings("resource")
+				Scanner jankenSca = new Scanner(System.in);
 	    		int jankenText = jankenSca.nextInt(); // 入力された文字列
 	    		/*
 	    		 * じゃんけん条件分岐
