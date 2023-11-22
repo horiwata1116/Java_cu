@@ -20,16 +20,16 @@ public class Qes1_13 {
 		long l = 0;
 		
 		// 単精度浮動小数点数型
-		float f = 0f;
+		float f = 0.0f;
 		
 		// 倍精度浮動小数点数型
-		double d = 0;
+		double d = 0.0;
 		
 		// 文字型
-		char c = '0';
+		char c = '\u0000';
 		
 		// 文字列型
-		String str = "こんにちは";
+		String str = null;
 		
 		// ブーリアン型
 		boolean boo = false;
@@ -184,19 +184,25 @@ public class Qes1_13 {
 		 */
 		
 		// 変数に自己代入する
-		int age2 = age + age;
-		double height2 = height + height;
-		double weight2 = weight + weight;
+		age += age;
+		height += height;
+		weight += weight;
 		
 		// コンソールに出力
 		System.out.println("「初めまして" + name + "です」");
-		System.out.println("「年齢は" + age2 + "歳です」");
-		System.out.println("「身長は" + height2 + "cmです」");
-		System.out.println("「体重は" + weight2 + "kgです」");
+		System.out.println("「年齢は" + age + "歳です」");
+		System.out.println("「身長は" + height + "cmです」");
+		System.out.println("「体重は" + weight + "kgです」");
 		System.out.println("「好きな食べ物は" + like + "です」");
-		System.out.println("BMIは" + (double)Math.round(weight2 / ((height2 / sh) * (height2 / sh)) * b) / b + "です」");
+		System.out.println("BMIは" + (double)Math.round(weight / ((height / sh) * (height / sh)) * b) / b + "です」");
 		
 		// 問１０ 問８で使用した年齢が25歳以上ならtrueが出力されるようにしてください。ただしif文は使いません
+		
+		// 問８の状態と同じになるように変数に再代入
+		age = 24;
+		height = 168.5;
+		weight = 64.2; 
+		
 		boolean ageCheck = age >= 25;
 		System.out.println(ageCheck);
 		
