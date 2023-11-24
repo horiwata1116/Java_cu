@@ -29,27 +29,24 @@ public class Curriculum_New_1_18 {
 		// 格納した値を順番にコンソールで出力後、格納した値を返すメソッドを作成してください。
 		// ※0は出力＆格納しないようにしてください。
 		public static int[] randam100(int num3) {
+			int randNumAry[] = new int[num3]; // ランダムな数字を格納する配列
 			Random rand = new Random(); // ランダム変数
-	    	int randNumary[] = new int[num3];
 	    	for(int n = 0; n < num3; n++) {
-	    		int randNum = rand.nextInt(100) + 1; // 1～100をランダムに出力
-	    		randNumary[n] = randNum; // 配列 randNumary の n番目に代入
+	    		randNumAry[n] = rand.nextInt(100) + 1; // 1～100をランダムに出力し配列に格納
+	    		System.out.println(randNumAry[n]); // コンソールに出力
 	    	}
-	    	for(int ary: randNumary){
-	    		System.out.println(ary);
-	    	}
-			return randNumary;
+			return randNumAry; // ランダムな数字が num3 個格納された配列を戻す
 		}
 
 		// Q6：引数にQ5で作成したメソッドの返り値を受け取り、受け取った配列の要素の平均値をコンソールに出力するメソッドを作成してください。
 		// ※小数点以下も表示されるようにしてください。
 		public static double aveQ5(int n[]) {
-			double total = 0;
-			for(int ary: n){
-				total += ary;
-				}
-			System.out.println(total / n.length);
-			return total / n.length; // 平均値を返す
+			double total = 0; // 配列に格納された値を合計するための変数
+			for(int a = 0; a < n.length; a++) {
+				total += n[a]; // 配列の a 番目を自己代入
+			}
+			System.out.println(total / n.length); // 平均値をコンソールに出力
+			return total / n.length; // 平均値を戻す
 		}
 		
 		// Q7：引数にQ6で作成したメソッドの返り値を受け取り、受け取った値が50以上ならばtrueそれ以外はfalseを返しコンソールに出力してください
@@ -73,13 +70,10 @@ public class Curriculum_New_1_18 {
 			// Q4
 			keisan(0.25, 0.4);
 			
-			// Q5
-			randam100(3);
+			// Q5.Q6.Q7
+			int num = 2;
+			int[] randamNumbers = randam100(num);
+			fifty(aveQ5(randamNumbers));
 			
-			// Q6
-			aveQ5(randam100(3));
-			
-			// Q7
-			fifty(aveQ5(randam100(3)));
 		}
 }
