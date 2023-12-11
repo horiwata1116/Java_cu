@@ -45,15 +45,18 @@ public class Curriculum_27_main {
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("コンソールに文字を入力してください");
-		
 		String input = scanner.nextLine(); // 入力された文字列取得
+		
+		if(input == null || input == "") {		
+			return; // 入力がnull or 空白の場合プログラムを終了する
+		}
+		
 		String[] animalData = input.split(","); // 入力された文字列を , で区切り、配列に格納
 		
 		// インスタンス化し配列作成
 		Animalprint[] animals = new Animalprint[animalData.length];
 		
 		// animalData の要素の数だけ繰り返す for文
-		// 
 		for(int i = 0; i < animalData.length; i++) {
 			
 			String[] animalInfo = animalData[i].split(":"); // 配列の文字列を : で区切り、配列に格納
