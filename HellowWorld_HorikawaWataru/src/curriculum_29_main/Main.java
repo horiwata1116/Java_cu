@@ -38,6 +38,7 @@ package curriculum_29_main;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 import curriculum_29_process.Prefectures;
 
@@ -63,8 +64,11 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.nextLine(); // 入力された文字列
 		
-		// 入力がnull or 空白で終了
+		String pattern = "[^0-9,]+";
+		// 入力がnull or 空白 or 数字以外で終了
 		if(input == null || input == "") {
+			return;
+		}else if (Pattern.matches(pattern, input)) {
 			return;
 		}
 		
