@@ -38,12 +38,11 @@ package curriculum_29_main;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 import curriculum_29_process.Prefectures;
 
 public class Main {
-	@SuppressWarnings({ "resource" })
+	@SuppressWarnings({ "resource", "unused" })
 	public static void main(String[] args) {
 		
 		// インスタンスを生成
@@ -64,11 +63,15 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.nextLine(); // 入力された文字列
 		
-		String pattern = "[^0-9,]+";
 		// 入力がnull or 空白 or 数字以外で終了
 		if(input == null || input == "") {
 			return;
-		}else if (Pattern.matches(pattern, input)) {
+		}
+		
+		Scanner scanner2 = new Scanner(System.in);
+		String input2 = scanner2.nextLine();
+		
+		if(input2 == null || input2 == "") {
 			return;
 		}
 		
@@ -78,18 +81,38 @@ public class Main {
 				.mapToInt(Integer::parseInt)
 				.toArray();
 		
-		// 配列内の数字を昇順にソート
-		Arrays.sort(numbers);
 		
-		// ソートされた順序で都道府県情報を出力
-		for (int index : numbers) {
-			if (index >= 0 && index < prefectures.length) {
-				Prefectures prefecture = prefectures[index];
-				System.out.println("都道府県名：" + prefecture.getName());
-				System.out.println("県庁所在地：" + prefecture.getCapital());
-				System.out.println("面積：" + prefecture.getArea() + "km2");
-				System.out.println();
+		// 配列内の数字を昇順にソート
+        Arrays.sort(numbers);
+
+		
+		switch(input2) {
+		
+		case "昇順" :
+			// ソートされた順序で都道府県情報を出力
+			for (int index : numbers) {
+				if (index >= 0 && index < prefectures.length) {
+					Prefectures prefecture = prefectures[index];
+					System.out.println("都道府県名：" + prefecture.getName());
+					System.out.println("県庁所在地：" + prefecture.getCapital());
+					System.out.println("面積：" + prefecture.getArea() + "km2");
+					System.out.println();
+					}
 				}
+			break;
+		
+		case "降順" :
+			// ソート後の配列を逆順にすることで降順になる
+			for (int i = numbers.length - 1; i >= 0; i--) {
+				int index = numbers[i];
+				if (index >= 0 && index < prefectures.length) {
+					Prefectures prefecture = prefectures[index];
+					System.out.println("都道府県名：" + prefecture.getName());
+					System.out.println("県庁所在地：" + prefecture.getCapital());
+					System.out.println("面積：" + prefecture.getArea() + "km2");
+					System.out.println();
+			    }
 			}
 		}
 	}
+}
