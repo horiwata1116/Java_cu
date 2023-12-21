@@ -6,12 +6,13 @@ public class Person {
 	private String name;
 	private int age;
 	private double height;
+	
 	// 問題4：インスタンスフィールド「weight」を定義し、コンストラクタの中で値をセットしてください（double型）
 	private double weight;
 	private static int totalCount = 0; // 人数のカウント用
+	
 	// 問題2：コンストラクタを定義してください（下記それぞれの引数）
 	// name, age, height
-	
 	// 問題3：コンストラクタの中で各インスタンスフィールドに値をセットしてください
 	
 	public Person(String name, int age, double height, double weight){
