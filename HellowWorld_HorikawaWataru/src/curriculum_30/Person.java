@@ -29,14 +29,14 @@ public class Person {
 	public double bmi() {
 		// BMI ＝ 体重kg ÷ (身長m * 身長m)
 		// 少数第二位を四捨五入
-		return (double)Math.round(this.weight / (this.height * this.height) * 10)/10;
+		return (double)Math.floor(this.weight / (this.height * this.height));
 	}
 	
 	// 問題8：インスタンスメソッド「print」を定義してください（戻り値：void）
 	// 問題9：printメソッドの中でthisを用いて「名前は〇〇です」,「年は〇〇です」「BMIは○○です」と出力してください
 	public void print() {
 		System.out.println("名前は" + this.name +"です");
-		System.out.println("年は" + this.age +"です");
+		System.out.println("年は" + this.age +"才です");
 		System.out.println("BMIは" + this.bmi() +"です");
 	}
 	
