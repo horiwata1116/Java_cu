@@ -1,5 +1,8 @@
 package curriculum_32;
 
+import curriculum_33.Bicycle;
+import curriculum_33.Car;
+
 public class Person {
 	
 	public static int count = 0;
@@ -33,5 +36,15 @@ public class Person {
 	
 	public static void printCount() {
 		System.out.println("合計" + Person.count + "人です");
+	}
+	
+	public void buy(Car car) {
+		car.setOwner(this.fullName());
+		System.out.println(car.getOwner() + "が購入しました");
+	}
+	
+	public void buy(Bicycle bicycle) {
+		bicycle.setOwner(this.fullName());
+		System.out.println(bicycle.getOwner() + "が購入しました");
 	}
 }
